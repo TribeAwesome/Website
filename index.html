@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Audree</title>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script type="text/javascript">
+            google.load("visualization", "1", {packages:["corechart"]});
+            google.setOnLoadCallback(drawChart);
+            function drawChart() {
+              var data = google.visualization.arrayToDataTable([
+                ['Day', 'Temperature', 'Water Level'],
+                ['Monday',  1000,      400],
+                ['Tuesday',  1170,      460],
+                ['Wednesday',  660,       1120],
+                ['Thursday',  1030,      540],
+                ['Friday',  203,   678]
+                ]);
+            
+              var options = {
+                title: 'Hydroponic System'
+              };
+            
+              var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+              chart.draw(data, options);
+            }
+        </script>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+
+
+    <body>
+        <div id="title" class="title">
+                <b>AUDREE</b>
+                <div id="subtitle" class="subtitle"><br><b>A</b>wesome <b>U</b>tilitarian <b>D</b>osing <b>R</b>egulation <b>E</b>nvironment <b>E</b>xperiment</div>
+        </div>
+
+        <div class="content main-content pictureViewer">
+            <div id="currentPictureLabel">Current Picture:<br><div class="bodyText">
+                <div id="playAnim"><a class="bodyText" href="javascript:playAnim();">Play animation</a></div>
+                <div id="pauseAnim" style="display:none;"><a class="bodyText" href="javascript:pauseAnim();">Pause animation</a></div>
+            </div></div>
+            <div class="picture"><img id="largePicture" src="http://casacraft.homeip.net:8080/pilapse/data/pi2/small/latest.jpg" width="100%"/></div>
+            <div id="previews"></div>
+            <div id="previewLabels">
+                <div id="oldestLabel">Oldest</div>
+                <div id="newestLabel">Newest</div>
+            </div>
+        </div>
+
+        <div class="content main-content graphs">
+            <div id="chart_div" style="width:100%;"></div>
+            <center><a href="http://www.anegada.com/weather/currentwx.htm"><img src="http://www.anegada.com/weather/broadcast.jpg" width="30%" /></a>
+        </div>
+        <div class="footer">
+            <center>&copy;2014 Tribe Awesome</center>
+        </div>
+    </body>
+</html>
